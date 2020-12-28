@@ -31,6 +31,31 @@
       <button class="btn btn--roll">🎲 Roll dice</button>
       <button class="btn btn--hold">📥 Hold</button>
     </main>
+
+    <button class="show-modal">📕 Rulebook</button>
+
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <h1>Rules 📖</h1>
+      <p>
+        - Each turn, a player repeatedly rolls a 🎲 until either a 1 is rolled
+        or the player decides to 📥("hold")
+      </p>
+      <p>
+        - If a player rolls a 1, the current score gets erased and the next
+        player takes turn
+      </p>
+      <p>
+        - If a player rolls any other number, it is added to their current score
+        and the player's turn continues
+      </p>
+      <p>
+        - If a player chooses to 📥("hold"), their current score is added to
+        their total score, and the next player takes turn
+      </p>
+      <p>- The first player to score 100 or more points wins</p>
+    </div>
+    <div class="overlay hidden"></div>
     <script src="script.js"></script>
   </body>
 </html>

@@ -4,8 +4,8 @@
 // - tooltips
 // - choice of backgrounds/background colors
 // - name change for players
-
 // - refactoring
+
 // Selecting elements
 const player0El = document.querySelector(".player--0");
 const player1El = document.querySelector(".player--1");
@@ -38,6 +38,7 @@ const init = function () {
   player1El.classList.remove("player--winner");
   player0El.classList.add("player--active");
   player1El.classList.remove("player-active");
+  btnNew.classList.add("hidden");
 };
 init();
 
@@ -76,6 +77,7 @@ btnHold.addEventListener("click", function () {
     if (scores[activePlayer] >= 100) {
       playing = false;
       diceEl.classList.add("hidden");
+      btnNew.classList.remove("hidden");
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.add("player--winner");
@@ -94,3 +96,32 @@ btnHold.addEventListener("click", function () {
 });
 //New game function
 btnNew.addEventListener("click", init);
+
+// Modal windows
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const btnCloseModal = document.querySelector(".close-modal");
+const btnsOpenModal = document.querySelectorAll(".show-modal");
+const closeModal = function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
+
+// (OPEN) removes .hidden class in CSS
+const openModal = function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+for (let i = 0; i < btnsOpenModal.length; i++)
+  btnsOpenModal[i].addEventListener("click", openModal);
+
+// (CLOSE) adds .hidden class in CSS
+btnCloseModal.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
+
+// (CLOSE) on ESC key
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    closeModal();
+  }
+});
