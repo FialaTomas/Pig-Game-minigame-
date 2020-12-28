@@ -42,7 +42,7 @@ const init = function () {
 };
 init();
 
-//Rolling dice function
+// Roll dice function
 btnRoll.addEventListener("click", function () {
   if (playing) {
     // 1. generating random dice roll
@@ -66,7 +66,7 @@ btnRoll.addEventListener("click", function () {
     }
   }
 });
-//Hold score function
+// Hold score function
 btnHold.addEventListener("click", function () {
   // 1. add current score to active players score
   if (playing) {
@@ -94,10 +94,10 @@ btnHold.addEventListener("click", function () {
     }
   }
 });
-//New game function
+// New game function
 btnNew.addEventListener("click", init);
 
-// Modal windows
+// Modal windows - Rulebook,
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const btnCloseModal = document.querySelector(".close-modal");
